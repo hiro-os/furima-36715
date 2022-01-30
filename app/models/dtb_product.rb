@@ -1,0 +1,2 @@
+class DtbProduct < ApplicationRecord
+end

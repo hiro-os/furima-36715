@@ -1,0 +1,2 @@
+class DtbShipping < ApplicationRecord
+end

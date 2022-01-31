@@ -7,12 +7,12 @@ class CreateDtbProducts < ActiveRecord::Migration[6.0]
       t.string :situation
       t.string :burdener
       t.string :area
-      t.string :Days
+      t.string :days
       t.string :price
       t.string :commission
       t.string :profit
       t.string :user_id
-      t.string :recode_id
+      t.string :record_id
       t.timestamps
     end
   end

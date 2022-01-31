@@ -7,7 +7,7 @@ class CreateDtbShippings < ActiveRecord::Migration[6.0]
       t.string :Street
       t.string :building
       t.string :phone
-      t.string :recode_id
+      t.string :record_id
       t.timestamps
     end
   end

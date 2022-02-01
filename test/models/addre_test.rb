@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DtbProductTest < ActiveSupport::TestCase
+class AddreTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

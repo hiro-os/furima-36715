@@ -11,7 +11,7 @@
 | last_name            | string | null: false |
 | family_name_katakana | string | null: false |
 | last_name_katakana   | string | null: false |
-| year                 | data   | null: false |
+| year                 | date   | null: false |
 
 ### Association
 

@@ -7,10 +7,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :family_name
       t.string :last_name
       t.string :family_name_katakana
-      t.string :last_name_katakan
-      t.string :year
-      t.string :month
-      t.string :day
+      t.string :last_name_katakana
+      t.date :year
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

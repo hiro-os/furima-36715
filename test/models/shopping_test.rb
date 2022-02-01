@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DtbShippingTest < ActiveSupport::TestCase
+class ShoppingTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -34,7 +34,7 @@
 
 ### Association
 
-- has_one :address
+- has_one :addresses
 - belongs_to :user
 
 ## shoppings テーブル
@@ -49,7 +49,7 @@
 - belongs_to :products
 - belongs_to :user
 
-## address テーブル
+## addresses テーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
@@ -62,4 +62,4 @@
 
 ### Association
 
-- belongs_to :product
+- belongs_to :products

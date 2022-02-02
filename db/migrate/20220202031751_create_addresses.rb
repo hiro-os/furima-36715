@@ -7,6 +7,7 @@
 #      t.string :street
 #      t.string :building
 #      t.string :phone
+#      t.integer :order_id
 
 #      t.timestamps
 #    end

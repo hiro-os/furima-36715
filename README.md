@@ -18,43 +18,44 @@
 - has_many :products
 - has_many :shoppings
 
-## products テーブル
+## items テーブル
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| title      | string     | null: false                    |
-| version    | string     | null: false                    |
-| category   | string     | null: false                    |
-| situation  | string     | null: false                    |
-| burdener   | string     | null: false                    |
-| area       | string     | null: false                    |
-| days       | string     | null: false                    |
-| price      | integer    | null: false                    |
-| user       | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| title         | string     | null: false                    |
+| version       | text       | null: false                    |
+| category_id   | integer    | null: false                    |
+| situation_id  | integer    | null: false                    |
+| burdener_id   | integer    | null: false                    |
+| area_id       | integer    | null: false                    |
+| order_days_id | integer    | null: false                    |
+| price         | integer    | null: false                    |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
 
+- has_one :orders
+- belongs_to :user
+
+## orders テーブル
+
+| Column | Type       | Options                        |
+| ------ | -----------| ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :items
+- belongs_to :user
 - has_one :addresses
-- belongs_to :user
-
-## shoppings テーブル
-
-| Column  | Type       | Options                        |
-| ------- | -----------| ------------------------------ |
-| product | references | null: false, foreign_key: true |
-| user    | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :products
-- belongs_to :user
 
 ## addresses テーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | postcode | string     | null: false                    |
-| state    | string     | null: false                    |
+| area_id  | string     | null: false                    |
 | city     | string     | null: false                    |
 | street   | string     | null: false                    |
 | building | string     |                                |
@@ -62,4 +63,4 @@
 
 ### Association
 
-- belongs_to :products
+- belongs_to :orders

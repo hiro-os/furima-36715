@@ -2,15 +2,15 @@
 
 ## users テーブル
 
-| Column               | Type   | Options      |
-| name                 | string | null: false  |
-| email                | string | unique: true |
-| encrypted_password   | string | null: false  |
-| family_name          | string | null: false  |
-| last_name            | string | null: false  |
-| family_name_katakana | string | null: false  |
-| last_name_katakana   | string | null: false  |
-| year                 | date   | null: false  |
+| Column               | Type   | Options                   |
+| name                 | string | null: false               |
+| email                | string | unique: true, null: false |
+| encrypted_password   | string | null: false               |
+| family_name          | string | null: false               |
+| last_name            | string | null: false               |
+| family_name_katakana | string | null: false               |
+| last_name_katakana   | string | null: false               |
+| year                 | date   | null: false               |
 
 ### Association
 
@@ -45,7 +45,7 @@
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 - belongs_to :user
 - has_one :address
 
@@ -54,7 +54,7 @@
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
 | postcode | string     | null: false                    |
-| area_id  | integer     | null: false                   |
+| area_id  | integer    | null: false                   |
 | city     | string     | null: false                    |
 | street   | string     | null: false                    |
 | building | string     |                                |
@@ -63,4 +63,4 @@
 
 ### Association
 
-- belongs_to :orders
+- belongs_to :order

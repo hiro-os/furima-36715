@@ -101,24 +101,30 @@ require 'rails_helper'
         expect(@user.errors.full_messages).to include("Year can't be blank")
       end
       it "family_nameが全角入力でなければ登録できない" do
-        @user.family_name = ''
+        @user.family_name = '!!!!'
         @user.valid?
         expect(@user.errors.full_messages).to include("Family name is invalid")
       end
       it "last_nameが全角入力でなければ登録できない" do
-        @user.last_name = ''
+        @user.last_name = '!!!!'
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name is invalid")
       end
       it "family_name_katakanaが全角入力でなければ登録できない" do
-        @user.family_name_katakana = ''
+        @user.family_name_katakana = 'あいうえお'
         @user.valid?
         expect(@user.errors.full_messages).to include("Family name katakana is invalid")
       end
       it "last_name_katakanaが全角入力でなければ登録できない" do
-        @user.last_name_katakana = ''
+        @user.last_name_katakana = 'あいうえお'
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name katakana is invalid")
+      end
+      it "半角英数字混合なければ登録できない" do
+        @user.password = '000000'
+        @user.password_confirmation = '000000'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
       end
     end
   end

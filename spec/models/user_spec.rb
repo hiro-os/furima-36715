@@ -126,6 +126,18 @@ require 'rails_helper'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is invalid")
       end
+      it "半角英数字混合なければ登録できない" do
+        @user.password = 'aaaaaa'
+        @user.password_confirmation = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
+      it "半角英数字混合なければ登録できない" do
+        @user.password = 'あア阿'
+        @user.password_confirmation = 'あア阿'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password is invalid")
+      end
     end
   end
 end

@@ -10,7 +10,7 @@ class Item < ApplicationRecord
 
   belongs_to :category,:situation,:burdener,:area,:order_day
   has_one_attached :image
-  #validates :image, presence: true
+  validates :image, presence: true
 #  has_one :orders
 #  belongs_to :user
 end

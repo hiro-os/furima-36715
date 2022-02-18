@@ -16,6 +16,6 @@ class Item < ApplicationRecord
   belongs_to :order_day
   has_one_attached :image
   validates :image, presence: true
-  has_one :orders
+  has_one :order
   belongs_to :user
 end

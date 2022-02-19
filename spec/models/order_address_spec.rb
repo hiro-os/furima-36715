@@ -1,10 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe DonationAddress, type: :model do
+RSpec.describe OrderAddress, type: :model do
   describe '寄付情報の保存' do
     before do
       user = FactoryBot.create(:user)
-      @order_address = FactoryBot.build(:order_address, user_id: user.id)
+      item = FactoryBot.create(:item)
+      sleep 0.1
+      @order_address = FactoryBot.build(:order_address, user_id: user.id, item_id: item.id)
     end
 
     context '内容に問題ない場合' do
@@ -12,7 +14,7 @@ RSpec.describe DonationAddress, type: :model do
         expect(@order_address).to be_valid
       end
       it "priceとtokenがあれば保存ができること" do
-        expect(@order).to be_valid
+        expect(@order_address).to be_valid
       end
     end
 
@@ -30,7 +32,7 @@ RSpec.describe DonationAddress, type: :model do
       it 'area_idを選択していないと保存できないこと' do
         @order_address.area_id ='1'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("City can't be blank")
+        expect(@order_address.errors.full_messages).to include("Area can't be blank")
       end
       it 'cityが空だと保存できないこと' do
         @order_address.city = ''
@@ -48,9 +50,9 @@ RSpec.describe DonationAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Phone can't be blank")
       end
       it 'phone(ハイフンなし11桁)で０から９までの数字以外だと保存できないこと' do
-        @order_address.phone = '1'
+        @order_address.phone = '123456789000'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone can't be blank")
+        expect(@order_address.errors.full_messages).to include("Phone is invalid")
       end
       it 'userが紐付いていないと保存できないこと' do
         @order_address.user_id = nil

@@ -8,7 +8,7 @@ class OrderAddress
     validates :city
     validates :street
     validates :phone
-    validates :phone, format: {with: /\A[0-9]{11}\z/ }
+    validates :phone, format: {with: /\A[0-9]{10,11}\z/ }
     validates :token
 
     validates :item_id

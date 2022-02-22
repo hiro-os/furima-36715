@@ -96,17 +96,17 @@ RSpec.describe Item, type: :model do
       it "価格の情報が半角数字以外だと保存できない" do 
         @item.price ='４００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank")
+        expect(@item.errors.full_messages).to include("Price is invalid")
       end
       it "価格の情報が300未満だと保存できない" do 
         @item.price ='299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank")
+        expect(@item.errors.full_messages).to include("Price is invalid")
       end
       it "価格の情報が9999999以上だと保存できない" do 
         @item.price ='10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank")
+        expect(@item.errors.full_messages).to include("Price is invalid")
       end
     end
   end
